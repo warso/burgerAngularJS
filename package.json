@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm-run-all --parallel dev:*",
     "dev:server": "webpack-dev-server --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:api": "json-server db.json -w"
   },
   "keywords": [],
   "author": "",
@@ -22,13 +23,11 @@
     "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5"
   },
-  "dependecies": {
-    "angular": "^1.6.4",
-    "bootstrap": "^3.3.7"
-  },
   "dependencies": {
+    "angular": "^1.6.4",
     "bootstrap": "^3.3.7",
-    "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.4.5"
+    "json-server": "^0.10.0",
+    "lodash": "^4.17.4",
+    "uuid": "^3.0.1"
   }
 }

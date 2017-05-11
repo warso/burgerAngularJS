@@ -1,61 +1,70 @@
-// 1. creation du package.json
-```npm init -y```
+## Installation
 
-// 2. installation de angular
-```npm i angular -S```
+### 1. creation du package.json
 
-// 3. installation de webpack + webpack dev server
-```npm i webpack webpack-dev-server -D```
+`npm init -y`
 
-// 4. installation de babel
-```npm i babel-core babel-loader babel-preset-env -D```
+### 2. installation de angular
 
-// 5. Configuration de webpack : webpack.config.js
+`npm i angular -S`
+
+### 3. installation de webpack + webpack dev server
+
+`npm i webpack webpack-dev-server -D`
+
+### 4. installation de babel
+
+`npm i babel-core babel-loader babel-preset-env -D`
+
+### 5. Configuration de webpack : webpack.config.js
+
 ```js
 const path = require('path');
 
 module.exports = {
-entry: "./app",
-output: {
-path: path.resolve(__dirname, "dist"),
-filename: "bundle.js"
-},
+    entry: "./app",
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "bundle.js"
+    },
 
-devServer: {
-contentBase: path.join(__dirname, "dist"),
-compress: true,
-port: 9090,
-},
+    devServer: {
+        contentBase: path.join(__dirname, "dist"),
+        compress: true,
+        port: 9090,
+    },
 
-devtool: "cheap-module-eval-source-map",
+	devtool: "cheap-module-eval-source-map",
 
-module: {
-loaders: [
-{
-	test: /\.js$/,
-	exclude: /(node_modules)/,
-	loader: "babel-loader",
-	query: {
-	presets: [['env', { 
-	modules: false,
-	targets: { browsers: ["last 2 versions"] }
-}]]
-}
-}
-]
-}
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                loader: "babel-loader",
+                query: {
+                    presets: [['env', { 
+                        modules: false,
+                        targets: { browsers: ["last 2 versions"] }
+                    }]]
+                }
+            }
+        ]
+    }
 
 }
 ```
 
-// 6. Modifier package.json
+### 6. Modifier package.json
+
 ```json
 ...
-"dev:server": "webpack-dev-server --open",
+    "dev:server": "webpack-dev-server --open",
 ...
 ```
 
-// 7. Créer fichier dist/index.html
+### 7. Créer fichier dist/index.html
+
 ```html
 ...
 <script src="bundle.js"></script>
@@ -86,3 +95,25 @@ angular.module('app', [])
 `npm i bootstrap -S`
 
 `npm i css-loader file-loader style-loader -D`
+
+## Linter
+
+`npm i standard -D`
+
+## json-server & npm-run-all
+
+`npm i json-server npm-run-all`
+
+package.json :
+
+```json
+...
+  "scripts": {
+    "start": "npm-run-all --parallel dev:*",
+    "dev:server": "webpack-dev-server --open",
+    "dev:api": "json-server db.json -w"
+  }
+...
+```
+
+Créer le fichier db.json à la racine.

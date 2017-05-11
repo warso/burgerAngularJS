@@ -3,8 +3,10 @@ export class TabsController{
 		
 
 		this.tabs=[ 
-		{title:"User", template:"user"},
-		{title:"Application", template:"application"},
+		/*{title:"User", template:"user"},*/
+		{title:"Burger", template:"burger"},
+		{title:"Application", template:"application"}
+
 		]
 
 		this.tab=0

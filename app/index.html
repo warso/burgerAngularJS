@@ -11,41 +11,47 @@
 		.container {
 			margin-top: 3em;
 		}
-	</style>
-</head>
-<body ng-app="app">
+		.sort.up::after {
+			content: ' ↑'
+		}
+		.sort.down::after {
+			content: ' ↓'
 
-	<div class="container" ng-controller="TabsController as $ctrl2">
+		</style>
+	</head>
+	<body ng-app="app">
+
+		<div class="container" ng-controller="TabsController as $ctrl2">
 
 
-		{{'Bonjour' | Reverse}}
+			<!-- {{'Bonjour' | Reverse}} -->
 
 
-<!-- 		<ul class="nav nav-tabs"  >
-			<li  ng-repeat="tab in $ctrl2.tabs track by $index" 
-			ng-class="{'active':$ctrl2.tab === $index}">
-			<a href ng-click="$ctrl2.changeTab($index)">{{tab.title}}</a>
-		</li>
-		<li class="pull-right">
-			<div class="btn-group">
-				<button ng-click="$ctrl2.navigateTab(-1)"
+			<ul class="nav nav-tabs"  >
+				<li  ng-repeat="tab in $ctrl2.tabs track by $index" 
+				ng-class="{'active':$ctrl2.tab === $index}">
+				<a href ng-click="$ctrl2.changeTab($index)">{{tab.title}}</a>
+			</li>
+			<li class="pull-right">
+				<div class="btn-group">
+					<button ng-click="$ctrl2.navigateTab(-1)"
+					class="btn btn-default btn-sm">
+					<span class="glyphicon glyphicon-chevron-left"></span>                    
+				</button>
+				<button ng-click="$ctrl2.navigateTab(+1)"
 				class="btn btn-default btn-sm">
-				<span class="glyphicon glyphicon-chevron-left"></span>                    
+				<span class="glyphicon glyphicon-chevron-right"></span>
 			</button>
-			<button ng-click="$ctrl2.navigateTab(+1)"
-			class="btn btn-default btn-sm">
-			<span class="glyphicon glyphicon-chevron-right"></span>
-		</button>
-	</div>
-</li>
+		</div>
+	</li>
 </ul>
 
 <ng-include 
-	ng-repeat="tab in ctrl2.tabs track by $index"
+	ng-repeat="tab in $ctrl2.tabs track by $index"
 	ng-if="$ctrl2.tab === $index"
 	src="$ctrl2.getTemplate(tab)">
 
-</ng-include> -->
+</ng-include>
 
 
 </div>
