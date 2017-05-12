@@ -22,35 +22,35 @@
 const path = require('path');
 
 module.exports = {
-    entry: "./app",
-    output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
-    },
+entry: "./app",
+output: {
+path: path.resolve(__dirname, "dist"),
+filename: "bundle.js"
+},
 
-    devServer: {
-        contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        port: 9090,
-    },
+devServer: {
+contentBase: path.join(__dirname, "dist"),
+compress: true,
+port: 9090,
+},
 
-	devtool: "cheap-module-eval-source-map",
+devtool: "cheap-module-eval-source-map",
 
-    module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                exclude: /(node_modules)/,
-                loader: "babel-loader",
-                query: {
-                    presets: [['env', { 
-                        modules: false,
-                        targets: { browsers: ["last 2 versions"] }
-                    }]]
-                }
-            }
-        ]
-    }
+module: {
+loaders: [
+{
+    test: /\.js$/,
+    exclude: /(node_modules)/,
+    loader: "babel-loader",
+    query: {
+    presets: [['env', { 
+    modules: false,
+    targets: { browsers: ["last 2 versions"] }
+}]]
+}
+}
+]
+}
 
 }
 ```
@@ -59,7 +59,7 @@ module.exports = {
 
 ```json
 ...
-    "dev:server": "webpack-dev-server --open",
+"dev:server": "webpack-dev-server --open",
 ...
 ```
 
@@ -108,12 +108,29 @@ package.json :
 
 ```json
 ...
-  "scripts": {
-    "start": "npm-run-all --parallel dev:*",
-    "dev:server": "webpack-dev-server --open",
-    "dev:api": "json-server db.json -w"
-  }
+"scripts": {
+"start": "npm-run-all --parallel dev:*",
+"dev:server": "webpack-dev-server --open",
+"dev:api": "json-server db.json -w"
+}
 ...
 ```
 
 Créer le fichier db.json à la racine.
+
+
+#Creation de service 
+
+1. servicename.service.js // creation d'un fichier service (export class ServiceName{})
+2.dans index.js import  class ServiceName && .service("ServiceName",ServiceName)
+
+## Routing
+
+`npm i angular-route -S`
+
+```js
+// webpack.config.json
+devServer {
+...
+historyApiFallback: true
+}

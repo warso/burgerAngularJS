@@ -3,6 +3,7 @@ import uuid from 'uuid/v4'
 
 export class BurgersController {
 	constructor (BurgerService) {
+		this.BurgerService=BurgerService
 		this.burgers=[]
 
 
@@ -10,38 +11,50 @@ export class BurgersController {
 		.then(burgers => this.burgers = burgers)
 		.catch(err => console.error(err))
 
-
-
 		this.col = 'name'
 		this.desc = false
 
-		this.newburger = this._initBurger()
+		this.fetchBurgers()
+	}
+
+	fetchBurgers() {
+		this.BurgerService.getBurgers()
+		.then(burgers => this.burgers = burgers)
 	}
 
 	getToppings () {
 		return uniq(this.burgers
 			.reduce((acc, {toppings}) => [...acc, ...toppings], []))
 
-    /* <=>
+	}
+
+	sortBy (col) {
+		if (this.col !== col) this.desc = false
+			else this.desc = !this.desc
+				this.col = col
+		}
+
+		applySort (burger) {
+			if (this.col === 'name') return burger.name
+				if (this.col === 'toppings') return burger.toppings.length
+			}
+
+		remove (burger) {
+			this.BurgerService.remove(burger)
+			.then(() => this.fetchBurgers())
+		}
+
+	}
+
+
+	/*this.newburger = this._initBurger()*/
+   /* <=>
     .reduce((acc, burger) => {
       let toppings = burger.toppings
       return acc.concat(toppings)
     }, [])
     */
-}
-
-sortBy (col) {
-	if (this.col !== col) this.desc = false
-		else this.desc = !this.desc
-			this.col = col
-	}
-
-	applySort (burger) {
-		if (this.col === 'name') return burger.name
-			if (this.col === 'toppings') return burger.toppings.length
-		}
-
-	save (form) {
+/*	save (form) {
 		if (form.$invalid) return
 
 			if (!this.newburger.id) {
@@ -60,12 +73,6 @@ sortBy (col) {
 
     // reset form state
     form.$setUntouched()
-}
-
-editBurger (burger) {
-    //this.newburger = clone(burger)
-    this.newburger = burger
-}
 
 _initBurger () {
 	return {
@@ -75,4 +82,8 @@ _initBurger () {
 		creator: ''
 	}
 }
+    editBurger (burger) {
+    //this.newburger = clone(burger)
+    this.newburger = burger
 }
+}*/

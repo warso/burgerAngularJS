@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Burger</title>
-	<script src="bundle.js"></script>
+	<script src="/bundle.js"></script>
 	<style>
 		.container {
 			margin-top: 3em;
@@ -18,13 +18,15 @@
 			content: ' ↓'
 
 		</style>
+		<base href="/">
 	</head>
 	<body ng-app="app">
 
-		<div class="container" ng-controller="TabsController as $ctrl2">
+		<a href="/burger">BURGERS</a>
+		<a href="/game">PLAY</a>
+		<div ng-view></div>
 
-
-			<!-- {{'Bonjour' | Reverse}} -->
+<!-- 		<div class="container" ng-controller="TabsController as $ctrl2">
 
 
 			<ul class="nav nav-tabs"  >
@@ -47,11 +49,11 @@
 </ul>
 
 <ng-include 
-	ng-repeat="tab in $ctrl2.tabs track by $index"
-	ng-if="$ctrl2.tab === $index"
-	src="$ctrl2.getTemplate(tab)">
+ng-repeat="tab in $ctrl2.tabs track by $index"
+ng-if="$ctrl2.tab === $index"
+src="$ctrl2.getTemplate(tab)">
 
-</ng-include>
+</ng-include> -->
 
 
 </div>

@@ -17,7 +17,7 @@ export class ControllerVN {
 		{ name: 'regergre', email: 'ouliu@ici' }
 		]
 	}
-	
+	 	
 	versionToggle(){
 		this.show = !this.show;
 	}
