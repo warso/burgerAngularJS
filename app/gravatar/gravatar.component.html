@@ -1,0 +1,28 @@
+<!-- <h2>Je s'appelle {{$ctrl.compoName}} !</h2> -->
+<!-- <h1>Le md5 de </h1>
+<h1 ng-if="!$ctrl.displayGravatar">{{$ctrl.email}}</h1>
+<h1>est</h1>
+<h1> {{$ctrl.md5}} </h1>
+<h1>et sa belle image est </h1>
+
+
+<img ng-src="https://www.gravatar.com/avatar/{{ $ctrl.md5 }}" 
+	 ng-if="$ctrl.displayGravatar" 
+	 ng-click="$ctrl.toogleGravatar()"> -->
+
+
+<!-- 	 <div ng-if="!$ctrl.displayGravatar" >
+	 	<strong ng-click="$ctrl.toggleGravatar()">{{ $ctrl.email }}</strong>
+	 	<button class="btn" ng-click="$ctrl.clicYo()">Je s'appelle Groot !</button>
+	 	<button class="btn" ng-click="$ctrl.clicHi()">I'm Batman!</button>
+	 </div> -->
+
+
+	 
+	 <div ng-if="!$ctrl.displayGravatar">
+	 	<strong ng-click="$ctrl.toggleGravatar()">{{ $ctrl.email }}</strong><br><br>
+	 	<form name="formTalk">
+	 	<input ng-model="$ctrl.text" placeholder="Met ton texte mon petit !" required ng-maxlength="5"><br><br>
+	 	<button class="btn" ng-click="$ctrl.clic(formTalk)">Clic batard !</button>
+	 	</form>
+	 </div>
