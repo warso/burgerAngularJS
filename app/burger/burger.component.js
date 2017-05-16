@@ -1,4 +1,5 @@
 import template from './burger.component.html'
+import './burger.component.css'
 
 class controller {
     constructor () {}

@@ -6,13 +6,19 @@
 
 			<dta-toppings 
 			toppings="$ctrl.toppings"
-			on-select="$ctrl.selectToppings($event)"></dta-toppings>
-			
-			<dta-recipe toppings="$ctrl.recipe"></dta-recipe>
+			on-select="$ctrl.selectToppings($event)"></dta-toppings><br><br>
+
+			<dta-recipe
+			toppings="$ctrl.recipe"
+			on-timeout="$ctrl.gameover()"></dta-recipe>
+
 		</div>
 
 		<div class="col-sm-6">
-			<dta-burger toppings="$ctrl.burgers"></dta-burger>
+
+			<dta-burger
+			toppings="$ctrl.burgers"></dta-burger>
+
 		</div>
 
 	</div>
